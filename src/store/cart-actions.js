@@ -5,7 +5,16 @@ export const fetchCartData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch(
-        "https://redux-f5327-default-rtdb.firebaseio.com/redux.json"
+        "https://redux-f5327-default-rtdb.firebaseio.com/redux.json",
+        {
+          method: "GET",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "PUT, GET, POST",
+            "Access-Control-Allow-Headers":
+              "Origin, X-Requested-With, Content-Type, Accept",
+          },
+        }
       );
 
       if (!response.ok) {
